@@ -1,6 +1,6 @@
-# Task Management System - Backend API
+# Follow Up - Backend API
 
-A robust, enterprise-grade RESTful API built with **NestJS**, **TypeScript**, and **MongoDB (Mongoose)**. This service powers authentication, task lifecycle management, team member assignments, statistics generation, and data filtering for the Task Management System.
+A robust, enterprise-grade RESTful API built with **NestJS**, **TypeScript**, and **MongoDB (Mongoose)**. This service powers authentication, task lifecycle management, team member assignments, statistics generation, and data filtering for the Follow Up System.
 
 ---
 

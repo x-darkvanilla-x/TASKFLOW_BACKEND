@@ -23,17 +23,23 @@ export class TasksController {
 
   @Post()
   create(@Body() createTaskDto: CreateTaskDto, @Request() req) {
-    return this.tasksService.create(createTaskDto, req.user.id);
+    const ownerId = req.headers['x-workspace-owner-id'];
+    const workspaceId = (req.headers['x-workspace-id'] as string) || createTaskDto.workspaceId;
+    return this.tasksService.create(createTaskDto, req.user.id, ownerId, workspaceId);
   }
 
   @Get()
   findAll(@Query() filters: FilterTasksDto, @Request() req) {
-    return this.tasksService.findAll(req.user.id, filters);
+    const ownerId = req.headers['x-workspace-owner-id'] || (filters as any).workspaceOwnerId;
+    const workspaceId = (req.headers['x-workspace-id'] as string) || filters.workspaceId;
+    return this.tasksService.findAll(req.user.id, filters, ownerId, workspaceId);
   }
 
   @Get('stats')
-  getStats(@Request() req) {
-    return this.tasksService.getStats(req.user.id);
+  getStats(@Request() req, @Query('workspaceId') queryWsId?: string) {
+    const ownerId = req.headers['x-workspace-owner-id'];
+    const workspaceId = queryWsId || (req.headers['x-workspace-id'] as string);
+    return this.tasksService.getStats(req.user.id, ownerId, workspaceId);
   }
 
   @Get(':id')
