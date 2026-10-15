@@ -7,6 +7,10 @@ export class CreateMemberDto {
 
   @IsString()
   @IsOptional()
+  username?: string;
+
+  @IsString()
+  @IsOptional()
   @IsEmail()
   email?: string;
 
@@ -17,4 +21,16 @@ export class CreateMemberDto {
   @IsString()
   @IsOptional()
   avatarColor?: string;
+
+  @IsString()
+  @IsOptional()
+  memberUserId?: string;
+
+  @IsString()
+  @IsOptional()
+  workspaceId?: string;
+
+  @IsString()
+  @IsOptional()
+  workspaceName?: string;
 }

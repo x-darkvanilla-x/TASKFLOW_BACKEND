@@ -9,6 +9,9 @@ export class Member {
   name: string;
 
   @Prop({ trim: true })
+  username?: string;
+
+  @Prop({ trim: true })
   email?: string;
 
   @Prop({ trim: true, default: 'Member' })
@@ -16,6 +19,15 @@ export class Member {
 
   @Prop({ trim: true, default: 'bg-indigo-600' })
   avatarColor?: string;
+
+  @Prop({ trim: true })
+  memberUserId?: string;
+
+  @Prop({ trim: true })
+  workspaceId?: string;
+
+  @Prop({ trim: true })
+  workspaceName?: string;
 
   @Prop({ required: true, index: true })
   userId: string;
