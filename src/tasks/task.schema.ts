@@ -16,6 +16,9 @@ export enum TaskPriority {
   LOW = 'low',
   MEDIUM = 'medium',
   HIGH = 'high',
+  URGENT = 'urgent',
+  NO_PRIORITY = 'no-priority',
+  NONE = 'none',
 }
 
 @Schema({ timestamps: true })
@@ -90,6 +93,18 @@ export class Task {
 
   @Prop({ required: true, index: true })
   userId: string;
+
+  @Prop({ trim: true, index: true })
+  workspaceId?: string;
+
+  @Prop({ trim: true })
+  createdBy?: string;
+
+  @Prop({ trim: true })
+  creatorName?: string;
+
+  @Prop({ default: false })
+  isLocked?: boolean;
 }
 
 export const TaskSchema = SchemaFactory.createForClass(Task);
