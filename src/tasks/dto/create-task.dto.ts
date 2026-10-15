@@ -3,6 +3,7 @@ import {
   IsOptional,
   IsEnum,
   IsDateString,
+  IsBoolean,
   MaxLength,
   MinLength,
 } from 'class-validator';
@@ -47,4 +48,20 @@ export class CreateTaskDto {
 
   @IsOptional()
   resources?: any[];
+
+  @IsOptional()
+  @IsString()
+  createdBy?: string;
+
+  @IsOptional()
+  @IsString()
+  creatorName?: string;
+
+  @IsOptional()
+  @IsBoolean()
+  isLocked?: boolean;
+
+  @IsOptional()
+  @IsString()
+  workspaceId?: string;
 }

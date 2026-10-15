@@ -13,4 +13,8 @@ export class FilterTasksDto {
   @IsOptional()
   @IsString()
   search?: string;
+
+  @IsOptional()
+  @IsString()
+  workspaceId?: string;
 }
